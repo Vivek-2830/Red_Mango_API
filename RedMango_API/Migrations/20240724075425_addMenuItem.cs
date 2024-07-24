@@ -20,7 +20,7 @@ namespace RedMangoAPI.Migrations
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SpecialTag = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Category = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Price = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Price = table.Column<double>(type: "nvarchar(max)", nullable: true),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
