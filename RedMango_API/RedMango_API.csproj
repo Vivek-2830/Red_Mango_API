@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.21.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="7.0.1" />
@@ -17,6 +18,19 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\FoodImages\carrot love.jpg" />
+    <None Include="wwwroot\FoodImages\hakka noodles.jpg" />
+    <None Include="wwwroot\FoodImages\idli.jpg" />
+    <None Include="wwwroot\FoodImages\malai kofta.jpg" />
+    <None Include="wwwroot\FoodImages\paneer pizza.jpg" />
+    <None Include="wwwroot\FoodImages\paneer tikka.jpg" />
+    <None Include="wwwroot\FoodImages\pani puri.jpg" />
+    <None Include="wwwroot\FoodImages\rasmalai.jpg" />
+    <None Include="wwwroot\FoodImages\spring roll.jpg" />
+    <None Include="wwwroot\FoodImages\sweet rolls.jpg" />
   </ItemGroup>
 
 </Project>
