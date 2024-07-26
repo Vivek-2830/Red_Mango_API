@@ -5,57 +5,38 @@ namespace RedMango_API.Services
 {
     public class MenuItemService : IMenuItemService
     {
-        private readonly IWebHostEnvironment _environment;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public MenuItemService(IWebHostEnvironment environment)
+        public MenuItemService(IWebHostEnvironment webHostEnvironment)
         {
-            _environment = environment;
+            _webHostEnvironment = webHostEnvironment;
         }
 
 
-        //public async Task<bool> DeleteBlob(string fileName, string folderName)
-        //{
-        //    if (string.IsNullOrEmpty(fileName))
-        //    {
-        //        throw new Exception("File name is not provided.");
-        //    }
-
-        //    var uploadsFolderPath = Path.Combine(_environment.WebRootPath, folderName);
-
-        //    //if (Directory.Exists(uploadsFolderPath))
-        //    //{
-        //    //    throw new Exception("Directory does not exist.");
-        //    //}
-
-        //    var filePath = Path.Combine(uploadsFolderPath, fileName);
-
-        //    if (File.Exists(filePath))
-        //    {
-        //        throw new Exception("File does not exist.");
-        //    }
-
-        //    File.Delete(filePath);
-
-        //    return true;
-        //}
-
-        //public async Task<bool> DeleteBlob(string fileName, string Folder)
-        //{
-        //    var filePath = Path.Combine(_environment.WebRootPath, "FoodImages", fileName);
-
-        //    if (!File.Exists(filePath))
-        //    {
-        //        throw new Exception($"No file uploaded.");
-        //    }   
-
-        //    File.Delete(filePath);
-
-        //    throw new Exception($"File deleted successfully." );
-        //}
-
-        public Task<string> GetBlob(string fileName, string folderName)
+        public async Task<bool> DeleteBlob(string fileName, string folderName)
         {
-            throw new NotImplementedException();
+            string filePath = Path.Combine(folderName, fileName);
+
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+                return await Task.FromResult(true);
+            }
+
+            return await Task.FromResult(false);
+        }
+
+        public async Task<string> GetBlob(string fileName, string folderName)
+        {
+            string filePath = Path.Combine(folderName, fileName);
+
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+                return filePath;
+            }
+
+            return null;
         }
 
         public async Task<string> UploadBlob(string fileName, string folderName, IFormFile file)
@@ -65,7 +46,7 @@ namespace RedMango_API.Services
                 throw new Exception($"No file uploaded.");
             }
 
-            var uploadsFolderPath = Path.Combine(_environment.WebRootPath, "FoodImages");
+            var uploadsFolderPath = Path.Combine(_webHostEnvironment.WebRootPath, "FoodImages");
 
             if (!Directory.Exists(uploadsFolderPath))
             {
