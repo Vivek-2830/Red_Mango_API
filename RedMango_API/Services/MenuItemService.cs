@@ -38,7 +38,6 @@ namespace RedMango_API.Services
 
             return null;
         }
-
         public async Task<string> UploadBlob(string fileName, string folderName, IFormFile file)
         {
             if (file == null || file.Length == 0)

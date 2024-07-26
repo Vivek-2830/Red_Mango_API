@@ -3,7 +3,7 @@
     public class SD
     {
         public const string SD_Storage_Container = "FoodImages";
-        public const string Role_Admin = "Admin";
-        public const string Role_Customer = "Customer";
+        public const string Role_Admin = "admin";
+        public const string Role_Customer = "customer";
     }
 }
